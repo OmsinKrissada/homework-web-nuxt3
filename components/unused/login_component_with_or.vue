@@ -41,7 +41,7 @@ async function handleSubmit() {
 
 <template>
 	<div class="px-8 py-6 mx-auto  bg-white shadow rounded-lg">
-		<div class="flex flex-col sm:flex-row items-center">
+		<div class="flex flex-col sm:flex-row items-stretch">
 			<form @submit.prevent="handleSubmit" class="space-y-6">
 				<div class="mt-0">
 					<label for="email" class="font-medium text-sm text-gray-700">Email</label>
@@ -73,13 +73,13 @@ async function handleSubmit() {
 				</button>
 			</form>
 
-			<div class="flex sm:flex-col items-center space-x-5 sm:space-y-5">
-				<div class="grow h-0.5 bg-gray-200 rounded"></div>
+			<div class="flex flex-col items-center space-y-5 min-h-full m-10">
+				<div class="grow w-0.5 bg-gray-200 rounded"></div>
 				<p class="text-gray-500 font-medium">OR</p>
-				<div class="grow h-0.5 bg-gray-200 rounded"></div>
+				<div class="grow w-0.5 bg-gray-200 rounded"></div>
 			</div>
 
-			<FancyButton class="h-fit shadow-md transition-shadow hover:shadow-lg">
+			<FancyButton class="h-fit m-auto shadow-md transition-shadow hover:shadow-lg">
 				<a :href="discord_oauth_link">
 					<div class="flex justify-center px-5 py-2 bg-blurple text-white  rounded ">
 
@@ -91,7 +91,7 @@ async function handleSubmit() {
 				</a>
 			</FancyButton>
 		</div>
-		<p class="text-sm text-center text-gray-600 ">Don't have an account?
+		<p class="mt-5 text-sm text-center text-gray-600 ">Don't have an account?
 			<nuxt-link href="/register" class="text-indigo-800 font-medium hover:underline">
 				Register
 			</nuxt-link>

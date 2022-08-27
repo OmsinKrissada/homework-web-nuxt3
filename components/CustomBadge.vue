@@ -13,10 +13,10 @@ const props = defineProps<{
 			'bg-sky-500': type === 'info',
 		}" />
 		<div class="font-medium text-gray-700">
-			<h1 v-if="type == 'error'" class="text-md font-bold">ERROR</h1>
-			<h1 v-if="type == 'warning'" class="text-md font-bold">WARNING</h1>
-			<h1 v-if="type == 'success'" class="text-md font-bold">SUCCESS</h1>
-			<h1 v-if="type == 'info'" class="text-md font-bold">INFO</h1>
+			<h1 v-if="type == 'error'" class="text-md font-extrabold">ERROR</h1>
+			<h1 v-if="type == 'warning'" class="text-md font-extrabold">WARNING</h1>
+			<h1 v-if="type == 'success'" class="text-md font-extrabold">SUCCESS</h1>
+			<h1 v-if="type == 'info'" class="text-md font-extrabold">INFO</h1>
 			<slot />
 		</div>
 	</div>

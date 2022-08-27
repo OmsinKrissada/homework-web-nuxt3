@@ -6,7 +6,9 @@ export default defineNuxtConfig({
 		shim: false
 	},
 	modules: [
-		'@nuxtjs/tailwindcss'
+		'@nuxtjs/tailwindcss',
+		'@pinia/nuxt',
+		'@vueuse/nuxt'
 	],
 	runtimeConfig: {
 		public: {
