@@ -1,20 +1,26 @@
 <script setup lang="ts">
+import axios from 'axios';
+
 const { apiEndpoint } = useRuntimeConfig().public;
-const { id, token } = useUserData();
 const router = useRouter();
 
-const { data } = await useFetch(apiEndpoint + '/homeworks');
+const userData = useUserData();
 
-onMounted(() => {
-	if (!token.value) router.push('/login');
+onMounted(async () => {
+	if (!userData.token) router.push('/login');
+	const { data } = await axios.get(apiEndpoint + '/users/' + userData.id);
+	console.log(data);
+	userData.avatarURL = data.avatarURL;
+	userData.tag = data.tag;
+	userData.accentColor = data.accentColor;
+	userData.bannerColor = data.bannerColor;
 });
+// const { data } = await useFetch(apiEndpoint + '/homeworks');
 </script>
 
 <template>
-	<div>
-		<p>Data: {{ data }}</p>
-		<input type="text" v-model="id">
-		{{ id }}
-		<button @click="token = ''">Clear</button>
+	<div id="idk" class="min-h-screen p-5">
+		<Profile />
+		<HomeworkForm />
 	</div>
 </template>

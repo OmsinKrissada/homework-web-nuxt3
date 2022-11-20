@@ -39,10 +39,10 @@ async function handleSubmit() {
 
 <template>
 	<div class="flex flex-col justify-center min-h-screen">
-		<!-- <CustomBadge>Test</CustomBadge> -->
-		<h1 class="mx-auto my-10 text-4xl text-gray-700 font-extrabold">Register</h1>
 
-		<div class="mb-5 px-8 py-6 mx-auto w-full max-w-md bg-white shadow rounded-lg">
+		<h1 class="mx-auto my-10 text-4xl text-secondary font-extrabold">Register</h1>
+
+		<div class="mb-5 px-8 py-6 mx-auto w-full max-w-md bg-accent shadow rounded-lg">
 
 			<FancyButton class="w-full shadow-md transition-shadow hover:shadow-lg">
 				<a :href="discord_oauth_link">
@@ -57,9 +57,9 @@ async function handleSubmit() {
 			</FancyButton>
 
 			<div class="flex items-center space-x-5 my-3">
-				<div class="grow h-0.5  bg-gray-200 rounded"></div>
-				<p class="text-gray-500 font-medium">OR</p>
-				<div class="grow h-0.5  bg-gray-200 rounded"></div>
+				<div class="grow h-0.5 bg-gray-200 dark:bg-slate-600 rounded"></div>
+				<p class="text-slate-400 font-medium">OR</p>
+				<div class="grow h-0.5 bg-gray-200 dark:bg-slate-600 rounded"></div>
 
 			</div>
 
@@ -76,26 +76,27 @@ async function handleSubmit() {
 			<form @submit.prevent="handleSubmit" class="space-y-6 origin-top"
 				:class="{ 'scale-y-0': !isExpanded, 'h-0': !isExpanded, 'transition-transform': isExpanded, 'duration-200': isExpanded }">
 				<div class="mt-0">
-					<label for="email" class="font-medium text-sm text-gray-700">Email</label>
+					<label for="email" class="font-medium text-sm text-secondary">Email</label>
 					<div class="mt-1">
 						<input type="email" autocomplete="email" id="email" placeholder="you@example.com" required
-							v-model="email" class="w-full border-gray-300 rounded shadow-sm transition-colors" />
+							v-model="email"
+							class="w-full bg-slate-400/10 border-none text-slate-400 focus:text-slate-300 font-medium focus:ring-2 focus:ring-indigo-400 rounded shadow-sm transition-[color_box-shadow]" />
 					</div>
 				</div>
 				<div>
-					<label for="password" class="font-medium text-sm text-gray-700">Password</label>
+					<label for="password" class="font-medium text-sm text-secondary">Password</label>
 					<div class="mt-1">
 						<input type="password" autocomplete="new-password" id="password" required v-model="password"
-							class="w-full border-gray-300 rounded shadow-sm transition-colors" />
+							class="w-full bg-slate-400/10 border-none text-slate-400 focus:text-slate-300 font-medium focus:ring-2 focus:ring-indigo-400 rounded shadow-sm transition-[color_box-shadow]" />
 					</div>
 				</div>
 				<div>
-					<label for="password_confirmation" class="font-medium text-sm text-gray-700">Confirm
+					<label for="password_confirmation" class="font-medium text-sm text-secondary">Confirm
 						Password</label>
 					<div class="mt-1">
 						<input type="password" autocomplete="new-password" id="password_confirmation" required
 							v-model="password_confirmation"
-							class="w-full border-gray-300 rounded shadow-sm transition-colors" />
+							class="w-full bg-slate-400/10 border-none text-slate-400 focus:text-slate-300 font-medium focus:ring-2 focus:ring-indigo-400 rounded shadow-sm transition-[color_box-shadow]" />
 					</div>
 				</div>
 
@@ -108,8 +109,8 @@ async function handleSubmit() {
 					</p>
 				</button>
 			</form>
-			<p class="mt-5 text-sm text-center text-gray-600 ">You have done this before?
-				<nuxt-link href="/login" class="text-indigo-800 font-medium hover:underline">
+			<p class="mt-5 text-sm text-center text-neutral ">You have done this before?
+				<nuxt-link href="/login" class="text-primary font-medium hover:underline">
 					Sign in
 				</nuxt-link>
 			</p>

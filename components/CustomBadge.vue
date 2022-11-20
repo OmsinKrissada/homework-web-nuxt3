@@ -5,7 +5,7 @@ const props = defineProps<{
 </script>
 
 <template>
-	<div class="flex items-center space-x-3 px-3 py-2 bg-slate-300/30 rounded-lg">
+	<div class="flex items-center space-x-3 px-3 py-2 bg-rose-50 rounded-lg">
 		<div class="self-stretch w-1 bg-rose-500 rounded" :class="{
 			'bg-rose-500': type === 'error',
 			'bg-amber-500': type === 'warning',

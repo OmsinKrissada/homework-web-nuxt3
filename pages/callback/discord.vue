@@ -20,14 +20,14 @@ onMounted(async () => {
 	try {
 		const { data } = await axios.post(apiEndpoint + '/auth/discord', route.query);
 		const userData = useUserData();
-		userData.id.value = data.id;
-		userData.token.value = data.access_token; msg.value = data;
+		userData.id = data.id;
+		userData.token = data.access_token; msg.value = data;
 		router.replace('/dashboard');
 	} catch (e) {
 		if (axios.isAxiosError(e)) {
 			console.error(e.response?.data);
 			if (!e.response?.data) {
-				showError('No response');
+				showError('No response from server');
 				return;
 			}
 			showError((e.response?.data as any).message);
