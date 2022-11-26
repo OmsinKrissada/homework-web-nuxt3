@@ -1,13 +1,20 @@
 <script setup lang="ts">
-const userData = useUserData();
+import { useUserStore } from '~~/store/useUserStore';
+
+const user = useUserStore();
 </script>
 
 <template>
-	<div class="text-white">
+	<div class="lg:max-w-7xl mx-auto text-white">
+		<ClientOnly>
+			<InputNickname v-if="!user.nickname"></InputNickname>
+		</ClientOnly>
 		<!-- <NuxtWelcome></NuxtWelcome> -->
-		<p>Data: {{ userData }}</p>
-		<h1>Your nickname is {{ userData.nickname }}</h1>
-		<div>
+		<!-- <p>Data: {{ user }}</p> -->
+		<h1>Your nickname is {{ user.nickname }}</h1>
+
+		<HomeworkItem></HomeworkItem>
+		<!-- <div>
 			<NuxtLink href="/login">Login Page</NuxtLink>
 		</div>
 		<div>
@@ -15,12 +22,10 @@ const userData = useUserData();
 		</div>
 		<div>
 			<NuxtLink href="/dashboard">Dashboard</NuxtLink>
-		</div>
+		</div> -->
 		<!-- <div class="mx-auto max-w-7xl bg-slate-800 rounded-md">
 			<h3 class="py-6 font-medium text-center text-2xl">Timetable</h3>
 			<SvgTimetable></SvgTimetable>
 		</div> -->
-
-		<InputNickname v-if="!userData.nickname"></InputNickname>
 	</div>
 </template>

@@ -1,6 +1,9 @@
 <template>
 	<!-- <div class="min-h-screen bg-[#1A202C]"> -->
 	<div class="min-h-screen bg-slate-900">
+		<header class="sticky top-0 backdrop-blur-md">
+			<TheNav></TheNav>
+		</header>
 		<slot />
 	</div>
 </template>

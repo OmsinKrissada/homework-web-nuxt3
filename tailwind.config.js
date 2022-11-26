@@ -26,9 +26,15 @@ module.exports = {
         'accent': colors.slate[800]
       },
       fontFamily: {
-        sans: 'Inter'
+        sans: 'Inter',
+        inter: 'Inter',
+        sarabun: 'Sarabun',
+        prompt: 'Prompt',
       }
     },
   },
-  plugins: [require("@tailwindcss/forms")],
+  plugins: [
+    require("@tailwindcss/forms"),
+    require('@headlessui/tailwindcss')({ prefix: 'ui' }),
+  ],
 };

@@ -7,7 +7,11 @@ export default defineNuxtConfig({
 		'@pinia/nuxt',
 		'@vueuse/nuxt',
 		'@nuxtjs/google-fonts',
+		'nuxt-headlessui',
 	],
+	build: {
+		transpile: ['@headlessui/vue', '@heroicons/vue']
+	},
 	css: ['~/assets/css/main.css'],
 	postcss: {
 		plugins: {
@@ -23,8 +27,9 @@ export default defineNuxtConfig({
 	},
 	googleFonts: {
 		families: {
-			Sarabun: [400, 500],
-			Inter: [400, 500],
+			Sarabun: [400, 500, 700],
+			Inter: [400, 500, 700],
+			Prompt: [400, 500, 700]
 		}
 	},
 });
