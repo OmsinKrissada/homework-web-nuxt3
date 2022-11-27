@@ -1,4 +1,9 @@
 <template>
+
+	<Head>
+		<Title>HW Tracker | Version 2.0</Title>
+		<Meta name="description" content="จดการบ้านของห้อง 6/1" />
+	</Head>
 	<!-- <div class="min-h-screen bg-[#1A202C]"> -->
 	<div class="min-h-screen bg-slate-900">
 		<header class="sticky top-0 backdrop-blur-md">
@@ -9,14 +14,6 @@
 </template>
 
 <style>
-@font-face {
-	font-family: 'THSarabunNew';
-	src: url('/fonts/THSarabunNew.ttf') format('truetype');
-	font-weight: normal;
-	font-style: normal;
-
-}
-
 /* @font-face {
     font-family: 'THSarabunNew';
     src: url('thsarabunnew_bolditalic-webfont.eot');

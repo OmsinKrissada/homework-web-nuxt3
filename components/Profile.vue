@@ -18,7 +18,7 @@ function removeNickname() {
 	<HeadlessMenu as="div" class="relative inline-block text-left">
 		<div>
 			<HeadlessMenuButton
-				class="relative group w-fit p-2 bg-white hover:bg-indigo-500 ui-open:bg-indigo-500 rounded-md hover:shadow-xl hover:shadow-indigo-500/60 transition-all">
+				class="relative group w-fit p-2 bg-white hover:bg-gradient-to-br from-indigo-500 to-sky-600 ui-open:bg-gradient-to-br rounded-md hover:shadow-xl hover:shadow-sky-500/60 transition-all">
 
 				<img v-if="user.avatarURL" :src="user.avatarURL" class="w-12 hover:shadow-xl rounded-full">
 				<svg v-else xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -41,11 +41,11 @@ function removeNickname() {
 					<HeadlessMenuItem v-slot="{ active }" @click="removeNickname">
 						<button :class="[
 							active ? 'bg-indigo-500 text-white' : 'text-gray-900',
-							'group flex w-full items-center rounded-md px-2 py-2 text-sm',
+							'group flex w-full items-center rounded-md px-2 py-2 font-prompt text-sm',
 						]">
 							<PencilSquareIcon :active="active"
 								class="mr-2 h-5 w-5 text-indigo-400 group-hover:text-white" aria-hidden="true" />
-							Change Nickname
+							เปลี่ยนชื่อเล่น
 						</button>
 					</HeadlessMenuItem>
 				</div>
