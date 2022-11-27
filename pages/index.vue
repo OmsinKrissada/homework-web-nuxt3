@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { format, formatISO, getYear } from 'date-fns';
-import { th } from 'date-fns/locale';
+import { th } from 'date-fns/esm/locale';
 import { useUserStore } from '~~/store/useUserStore';
 
 const user = useUserStore();

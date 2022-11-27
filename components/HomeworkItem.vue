@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ClockIcon, ExclamationTriangleIcon, CalendarDaysIcon, BookOpenIcon, EllipsisVerticalIcon, EllipsisHorizontalCircleIcon, EllipsisHorizontalIcon, PencilSquareIcon, TrashIcon } from '@heroicons/vue/20/solid';
 import { formatDistanceToNow, formatDistanceToNowStrict, formatDistance, formatDistanceStrict, addHours } from 'date-fns';
-import { th } from 'date-fns/locale';
+import { th } from 'date-fns/esm/locale';
 
 const props = defineProps<{
 	id: string,
