@@ -9,11 +9,11 @@ export default defineNuxtConfig({
 		'@nuxtjs/google-fonts',
 		'nuxt-headlessui',
 	],
-	plugins: [{ src: '~/plugins/vercel.js', mode: 'client' }],
 	build: {
 		transpile: ['@headlessui/vue', '@heroicons/vue']
 	},
 	css: ['~/assets/css/main.css'],
+	plugins: [{ src: '~/plugins/vercel.js', mode: 'client' }],
 	postcss: {
 		plugins: {
 			tailwindcss: {},
@@ -24,6 +24,7 @@ export default defineNuxtConfig({
 		public: {
 			apiEndpoint: '',
 			discord_oauth_link: '',
+			enableAnalytics: false,
 		}
 	},
 	googleFonts: {
