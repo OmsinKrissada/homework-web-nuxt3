@@ -16,9 +16,9 @@ const currentDay = computed(() => {
 	return format(day, `วันeeeeที่ dd MMMM พ.ศ. ${year}`, { locale: th });
 });
 
-const events = [
-	{ name: 'TGAT / TPAT', date: '2022-12-10' }
-];
+// const events = [
+// 	{ name: 'TGAT / TPAT', date: '2022-12-10' }
+// ];
 </script>
 
 <template>
