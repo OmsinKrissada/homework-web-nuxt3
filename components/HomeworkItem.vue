@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ClockIcon, ExclamationTriangleIcon, CalendarDaysIcon, BookOpenIcon, EllipsisVerticalIcon, EllipsisHorizontalCircleIcon, EllipsisHorizontalIcon, PencilSquareIcon, TrashIcon } from '@heroicons/vue/20/solid';
-import { formatDistanceToNow, formatDistanceToNowStrict, formatDistance, formatDistanceStrict, addHours } from 'date-fns';
+import { formatDistanceToNow, formatDistanceToNowStrict, formatDistance, formatDistanceStrict, addHours, formatRelative } from 'date-fns';
 import { th } from 'date-fns/esm/locale';
 
 const props = defineProps<{
@@ -34,13 +34,14 @@ async function deleteHomework() {
 <template>
 	<div class="p-4 border-2 border-slate-500 rounded">
 		<div class="flex justify-between items-center mb-4 pb-2 border-b border-slate-600">
-			<p class="font-bold text-xl">
+			<p class="mr-4 font-bold text-xl">
 				{{ title }}
 			</p>
 			<!-- <div class="flex flex-col items-end space-y-2"> -->
-			<div class="flex items-center font-medium">
-				<span v-if="dueDate" class="flex px-3 py-2 bg-slate-700/60 font-prompt rounded-md">
-					{{ dueString }}
+			<div class="ml-auto flex items-center font-medium">
+				<span v-if="dueDate"
+					class="flex whitespace-nowrap items-center px-2 py-1 bg-slate-700/60 font-prompt text-sm rounded-md">
+					≈ {{ dueString }}
 					<CalendarDaysIcon class="w-6 h-6 ml-2 fill-emerald-400" />
 				</span>
 				<HeadlessMenu as="div" class="relative inline-block font-normal text-left">
@@ -57,7 +58,7 @@ async function deleteHomework() {
 						leave-to-class="transform scale-95 opacity-0">
 						<HeadlessMenuItems
 							class="absolute right-0 mt-2 w-32 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-							<div class="p-1">
+							<!-- <div class="p-1">
 								<HeadlessMenuItem v-slot="{ active }" @click="editHomework">
 									<button :class="[
 										active ? 'bg-indigo-500 text-white' : 'text-gray-900',
@@ -69,7 +70,7 @@ async function deleteHomework() {
 										แก้ไข
 									</button>
 								</HeadlessMenuItem>
-							</div>
+							</div> -->
 							<div class="p-1">
 								<HeadlessMenuItem v-slot="{ active }" @click="deleteHomework">
 									<button :class="[
@@ -95,6 +96,11 @@ async function deleteHomework() {
 			class="flex items-center w-fit mb-4 font-prompt font-medium text-sm text-slate-300 rounded-md">
 			<BookOpenIcon class="w-4 h-4 mr-2 fill-amber-400" />
 			{{ subject.name }}
+		</p>
+		<p v-if="dueDate"
+			class="flex items-center w-fit mb-4 font-prompt font-medium text-sm text-slate-300 rounded-md">
+			<CalendarDaysIcon class="w-4 h-4 mr-2 fill-emerald-400" />
+			{{ formatRelative(dueDate, new Date(), { locale: th }) }}
 		</p>
 		<p class="font-medium text-slate-300">
 			{{ detail }}
