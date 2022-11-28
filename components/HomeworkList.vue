@@ -12,11 +12,11 @@ console.log(homeworks);
 </script>
 
 <template>
-	<div class="flex flex-col space-y-4 max-w-lg mx-auto px-2">
+	<div class="flex flex-col space-y-4 max-w-lg px-2">
+		<HomeworkAddItem @reload="refresh" />
 		<HomeworkItem v-for="hw in homeworks" :key="hw.id" :id="hw.id" :title="hw.title" :detail="hw.detail"
 			:subject="hw.subject" :due-date="hw.dueDate ? new Date(hw.dueDate) : null" :author="hw.author"
 			@reload="refresh" />
-		<HomeworkAddItem class="animate-pulse" />
 	</div>
 	<!-- class="bg-gradient-to-r from-indigo-900/30 to-sky-900/30" -->
 </template>

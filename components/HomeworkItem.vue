@@ -9,7 +9,7 @@ const props = defineProps<{
 	detail: string,
 	author: string,
 	dueDate: Date | null,
-	subject: { id: string, name: string; },
+	subject?: { id: string, name: string; },
 }>();
 
 const emits = defineEmits<{
@@ -91,8 +91,8 @@ async function deleteHomework() {
 			<!-- </div> -->
 
 		</div>
-		<p
-			class="flex items-center w-fit mb-4 px-3 py-2 bg-slate-700/60 font-prompt font-medium text-sm text-slate-300 rounded-md">
+		<p v-if="subject"
+			class="flex items-center w-fit mb-4 font-prompt font-medium text-sm text-slate-300 rounded-md">
 			<BookOpenIcon class="w-4 h-4 mr-2 fill-amber-400" />
 			{{ subject.name }}
 		</p>

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { format, formatISO, getYear } from 'date-fns';
+import { format, formatDistanceToNow, formatISO, getYear } from 'date-fns';
 import { th } from 'date-fns/esm/locale';
 import { useUserStore } from '~~/store/useUserStore';
 
@@ -15,12 +15,16 @@ const currentDay = computed(() => {
 	const year = getYear(day) + 543;
 	return format(day, `วันeeeeที่ dd MMMM พ.ศ. ${year}`, { locale: th });
 });
+
+const events = [
+	{ name: 'TGAT / TPAT', date: '2022-12-10' }
+];
 </script>
 
 <template>
 	<div class="lg:max-w-7xl mx-auto py-8 text-white">
 		<ClientOnly>
-			<InputNickname v-if="!user.nickname"></InputNickname>
+			<TheNicknameBox v-if="!user.nickname"></TheNicknameBox>
 		</ClientOnly>
 		<!-- <NuxtWelcome></NuxtWelcome> -->
 		<!-- <p>Data: {{ user }}</p> -->
@@ -37,7 +41,35 @@ const currentDay = computed(() => {
 			</p>
 		</div>
 
-		<HomeworkList />
+		<section class="flex flex-wrap space-y-4 justify-evenly">
+			<div class="h-fit grid grid-cols-2 gap-2 sm:grid-cols-3">
+				<div class="p-6 bg-gradient-to-br from-sky-400 to-sky-700 rounded-xl">
+					<h3 class="font-medium text-xl">
+						TGAT / TPAT
+					</h3>
+					<p class="font-bold text-lg text-white text-right">
+						{{ formatDistanceToNow(new Date('2022-12-10')) }}
+					</p>
+				</div>
+				<div class="p-6 bg-gradient-to-br from-yellow-400 to-yellow-700 rounded-xl">
+					<h3 class="font-medium text-xl">
+						เริ่มสอบกลางภาค
+					</h3>
+					<p class="font-bold text-lg text-white text-right">
+						{{ formatDistanceToNow(new Date('2022-12-16')) }}
+					</p>
+				</div>
+				<div class="p-6 bg-gradient-to-br from-green-400 to-green-700 rounded-xl">
+					<h3 class="font-medium text-xl">
+						สอบทฤษฎี ร.ด.
+					</h3>
+					<p class="font-bold text-lg text-white text-right">
+						{{ formatDistanceToNow(new Date('2022-12-18')) }}
+					</p>
+				</div>
+			</div>
+			<HomeworkList class="flex-grow" />
+		</section>
 		<!-- <div>
 			<NuxtLink href="/login">Login Page</NuxtLink>
 		</div>
