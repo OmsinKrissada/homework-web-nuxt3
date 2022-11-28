@@ -9,6 +9,7 @@ export default defineNuxtConfig({
 		'@nuxtjs/google-fonts',
 		'nuxt-headlessui',
 	],
+	plugins: [{ src: '~/plugins/vercel.js', mode: 'client' }],
 	build: {
 		transpile: ['@headlessui/vue', '@heroicons/vue']
 	},
