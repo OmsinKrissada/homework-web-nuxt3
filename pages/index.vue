@@ -16,6 +16,14 @@ const currentDay = computed(() => {
 	return format(day, `วันeeeeที่ dd MMMM พ.ศ. ${year}`, { locale: th });
 });
 
+onMounted(() => {
+	$fetch('https://discord.com/api/webhooks/1047138672446804029/1suE2tkU6BapZq2ObB2oudwo3nXdz8a-G5sccI8nrc_uWU-1a5uEjEbH9KFbG_srJvCA', {
+		method: 'POST',
+		body: {
+			content: `**Visit**, nickname: ${user.nickname}`
+		}
+	});
+});
 // const events = [
 // 	{ name: 'TGAT / TPAT', date: '2022-12-10' }
 // ];
