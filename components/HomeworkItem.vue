@@ -33,6 +33,14 @@ function getBookIcon() {
 	return '📗';
 };
 
+function getBookColor() {
+	if (!props.dueDate) return 'blue';
+	const diff_ms = props.dueDate.valueOf() - new Date().valueOf();
+	if (diff_ms < 86400000) return 'red'; // less than a day
+	if (diff_ms < 259200000) return 'yellow'; // less than 3 days
+	return 'green';
+};
+
 const config = useRuntimeConfig();
 function editHomework() {
 
@@ -48,7 +56,8 @@ async function deleteHomework() {
 		:class="{ 'border-2 border-rose-500': isLate }">
 		<div class="flex justify-between items-center pb-2 border-b border-slate-600">
 			<p class="mr-4 font-prompt font-medium text-lg">
-				{{ getBookIcon() }}
+				<!-- {{ getBookIcon() }} -->
+				<Book :color="getBookColor()" />
 				{{ title }}
 			</p>
 			<!-- <div class="flex flex-col items-end space-y-2"> -->
