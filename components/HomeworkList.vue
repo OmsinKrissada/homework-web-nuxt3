@@ -3,10 +3,10 @@ const config = useRuntimeConfig();
 const { data, error, pending, refresh } = await useFetch<{
 	id: string,
 	title: string,
-	detail: string,
+	detail?: string,
 	author: string,
-	dueDate: string,
-	subject: { id: string, name: string; },
+	dueDate?: Date,
+	subject?: { id: string, name: string; },
 }[]>(config.public.apiEndpoint + '/homeworks');
 const homeworks = computed(() => data.value?.sort((a, b) => {
 	if (!a.dueDate && !b.dueDate) return 0;
@@ -16,7 +16,6 @@ const homeworks = computed(() => data.value?.sort((a, b) => {
 }));
 
 const count = computed(() => homeworks.value?.length);
-console.log(homeworks);
 </script>
 
 <template>

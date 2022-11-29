@@ -6,7 +6,7 @@ import { th } from 'date-fns/esm/locale';
 const props = defineProps<{
 	id: string,
 	title: string,
-	detail: string,
+	detail?: string,
 	author: string,
 	dueDate: Date | null,
 	subject?: { id: string, name: string; },
@@ -24,14 +24,6 @@ const isLate = computed(() => {
 	if (props.dueDate) return new Date().valueOf() - props.dueDate.valueOf() > 0;
 	else return false;
 });
-
-function getBookIcon() {
-	if (!props.dueDate) return '📘';
-	const diff_ms = props.dueDate.valueOf() - new Date().valueOf();
-	if (diff_ms < 86400000) return '📕'; // less than a day
-	if (diff_ms < 259200000) return '📙'; // less than 3 days
-	return '📗';
-};
 
 function getBookColor() {
 	if (!props.dueDate) return 'blue';
