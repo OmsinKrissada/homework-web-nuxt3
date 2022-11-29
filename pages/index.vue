@@ -6,12 +6,12 @@ import { useUserStore } from '~~/store/useUserStore';
 const user = useUserStore();
 const currentTime = computed(() => {
 	const time = useTimestamp({ interval: 1000 }).value;
-	const separator = Math.floor(time.valueOf() / 1000) % 2 == 0 ? ':' : ' ';
+	// const separator = Math.floor(time.valueOf() / 1000) % 2 == 0 ? ':' : ' ';
+	const separator = ':';
 	return format(time, `HH${separator}mm${separator}ss`);
 });
 const currentDay = computed(() => {
 	const day = useTimestamp({ interval: 1000 }).value;
-	// const separator = Math.floor(day.valueOf() / 1000) % 2 == 0 ? ':' : ' ';
 	const year = getYear(day) + 543;
 	return format(day, `วันeeeeที่ dd MMMM พ.ศ. ${year}`, { locale: th });
 });
@@ -31,28 +31,28 @@ const currentDay = computed(() => {
 		<!-- <h1>Your nickname is {{ user.nickname }}</h1> -->
 
 		<div class="mt-4 mb-8 font-sarabun text-lg text-center">
-			<p class="mb-2 font-medium text-slate-500">ตอนนี้เวลา</p>
-			<p class="mb-2 font-inter font-bold text-3xl text-slate-300">
+			<p class="mb-2 font-medium text-slate-400">ตอนนี้เวลา</p>
+			<p class="mb-2 tracking-wider font-inter font-bold text-3xl text-slate-200">
 				{{ currentTime }}
 			</p>
-			<p class="mb-2 font-medium text-slate-500">ของ</p>
-			<p class="font-inter text-xl text-slate-300">
+			<p class="mb-2 font-medium text-slate-400">ของ</p>
+			<p class="font-inter text-xl text-slate-200">
 				{{ currentDay }}
 			</p>
 		</div>
 
-		<section class="flex flex-wrap space-y-4 justify-evenly">
+		<section class="space-y-8 flex flex-wrap flex-col xl:flex-row xl:items-start justify-evenly items-center">
 			<div class="h-fit grid grid-cols-2 gap-2 sm:grid-cols-3">
 				<div class="p-6 bg-gradient-to-br from-sky-400 to-sky-700 rounded-xl">
-					<h3 class="font-medium text-xl">
-						TGAT / TPAT
+					<h3 class="font-medium text-normal">
+						TGAT / TPAT 2-5
 					</h3>
 					<p class="font-bold text-lg text-white text-right">
 						{{ formatDistanceToNow(new Date('2022-12-10')) }}
 					</p>
 				</div>
 				<div class="p-6 bg-gradient-to-br from-yellow-400 to-yellow-700 rounded-xl">
-					<h3 class="font-medium text-xl">
+					<h3 class="font-medium text-normal">
 						เริ่มสอบกลางภาค
 					</h3>
 					<p class="font-bold text-lg text-white text-right">
@@ -60,7 +60,7 @@ const currentDay = computed(() => {
 					</p>
 				</div>
 				<div class="p-6 bg-gradient-to-br from-green-400 to-green-700 rounded-xl">
-					<h3 class="font-medium text-xl">
+					<h3 class="font-medium text-normal">
 						สอบทฤษฎี ร.ด.
 					</h3>
 					<p class="font-bold text-lg text-white text-right">

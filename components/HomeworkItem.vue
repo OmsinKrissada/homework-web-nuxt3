@@ -20,6 +20,18 @@ const dueString = computed(() => {
 	if (props.dueDate)
 		return formatDistanceStrict(props.dueDate, useTimestamp({ interval: 1000 }).value, { locale: th });
 });
+const isLate = computed(() => {
+	if (props.dueDate) return new Date().valueOf() - props.dueDate.valueOf() > 0;
+	else return false;
+});
+
+function getBookIcon() {
+	if (!props.dueDate) return '📘';
+	const diff_ms = props.dueDate.valueOf() - new Date().valueOf();
+	if (diff_ms < 86400000) return '📕'; // less than a day
+	if (diff_ms < 259200000) return '📙'; // less than 3 days
+	return '📗';
+};
 
 const config = useRuntimeConfig();
 function editHomework() {
@@ -32,17 +44,19 @@ async function deleteHomework() {
 }
 </script>
 <template>
-	<div class="p-4 border-2 border-slate-500 rounded">
-		<div class="flex justify-between items-center mb-4 pb-2 border-b border-slate-600">
-			<p class="mr-4 font-bold text-xl">
+	<div class="p-4 space-y-4 bg-gradient-to-br from-slate-800 to-slate-700/60 shadow shadow-black rounded"
+		:class="{ 'border-2 border-rose-500': isLate }">
+		<div class="flex justify-between items-center pb-2 border-b border-slate-600">
+			<p class="mr-4 font-prompt font-medium text-lg">
+				{{ getBookIcon() }}
 				{{ title }}
 			</p>
 			<!-- <div class="flex flex-col items-end space-y-2"> -->
-			<div class="ml-auto flex items-center font-medium">
+			<div class="flex items-center font-medium">
 				<span v-if="dueDate"
 					class="flex whitespace-nowrap items-center px-2 py-1 bg-slate-700/60 font-prompt text-sm rounded-md">
-					≈ {{ dueString }}
-					<CalendarDaysIcon class="w-6 h-6 ml-2 fill-emerald-400" />
+					≈ {{ dueString }}{{ isLate ? "ที่แล้ว" : "" }}
+					<!-- <CalendarDaysIcon class="w-6 h-6 ml-2 fill-emerald-400" /> -->
 				</span>
 				<HeadlessMenu as="div" class="relative inline-block font-normal text-left">
 					<div>
@@ -92,22 +106,22 @@ async function deleteHomework() {
 			<!-- </div> -->
 
 		</div>
-		<p v-if="subject"
-			class="flex items-center w-fit mb-4 font-prompt font-medium text-sm text-slate-300 rounded-md">
-			<BookOpenIcon class="w-4 h-4 mr-2 fill-amber-400" />
-			{{ subject.name }}
-		</p>
-		<p v-if="dueDate"
-			class="flex items-center w-fit mb-4 font-prompt font-medium text-sm text-slate-300 rounded-md">
-			<CalendarDaysIcon class="w-4 h-4 mr-2 fill-emerald-400" />
-			{{ formatRelative(dueDate, new Date(), { locale: th }) }}
-		</p>
-		<p class="font-medium text-slate-300">
+		<div class="flex space-x-2 text-sm text-slate-300">
+			<p v-if="subject" class="flex items-center w-fit font-prompt font-medium rounded-md">
+				<BookOpenIcon class="w-4 h-4 mr-2 fill-sky-400" />
+				{{ subject.name }}
+			</p>
+			<p v-if="dueDate" class="flex items-center w-fit font-prompt font-medium rounded-md">
+				<CalendarDaysIcon class="w-4 h-4 mr-2 fill-emerald-400" />
+				{{ formatRelative(dueDate, new Date(), { locale: th }) }}
+			</p>
+		</div>
+		<p class="font-medium font-prompt text-slate-200">
 			{{ detail }}
 		</p>
 		<!-- <div> -->
 
-		<p class="mt-4 font-prompt font-medium text-left text-slate-500">
+		<p class="font-prompt font-medium text-sm text-left text-slate-400">
 			เพิ่มโดย {{ author }}
 		</p>
 		<!-- </div> -->

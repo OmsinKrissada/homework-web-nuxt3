@@ -1,7 +1,7 @@
 <template>
 
 	<Head>
-		<Title>HW Tracker | Beta</Title>
+		<Title>HW Tracker (Beta)</Title>
 		<Meta name="description" content="สมุดจดการบ้านของห้อง 6/1" />
 		<Meta name="twitter:title" content="HW Tracker | Beta" />
 		<Meta name="og:type" content="website" />
@@ -14,7 +14,7 @@
 	</Head>
 	<!-- <div class="min-h-screen bg-[#1A202C]"> -->
 	<div class="min-h-screen bg-slate-900">
-		<header class="sticky top-0 backdrop-blur-md">
+		<header class="sticky top-0 bg-slate-900/60 backdrop-blur-md">
 			<TheNav></TheNav>
 		</header>
 		<slot />

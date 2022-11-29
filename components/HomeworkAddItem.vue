@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { CheckCircleIcon, CheckIcon } from '@heroicons/vue/20/solid';
+import { CheckCircleIcon, CheckIcon, DocumentPlusIcon } from '@heroicons/vue/20/solid';
 import { PlusCircleIcon, ChevronUpDownIcon } from '@heroicons/vue/24/outline';
 import { useUserStore } from '~~/store/useUserStore';
 
@@ -103,11 +103,12 @@ function handleCancel() {
 }
 </script>
 <template>
-	<div class="p-4 border-2 border-dashed border-slate-500 hover:border-slate-400 rounded cursor-pointer transition-colors"
+	<div class="px-4 py-2 bg-white hover:bg-transparent hover:text-white border border-white text-black rounded cursor-pointer transition-colors"
 		@click="openModal">
-		<p class="font-prompt text-center">
-			<PlusCircleIcon class="inline mx-auto w-6 h-6" />
-			ครูสั่งงาน? กดตรงนี้เลย
+		<p class="flex justify-center items-center font-medium font-prompt text-center">
+			<DocumentPlusIcon class="inline w-6 h-6 mr-2" />
+			<!-- ครูสั่งงาน? กดตรงนี้เลย -->
+			เพิ่มงาน
 		</p>
 		<HeadlessTransitionRoot appear :show="isOpen" as="template">
 			<HeadlessDialog as="div" class="relative z-10">
@@ -137,7 +138,7 @@ function handleCancel() {
 										<div class="mt-1">
 											<input type="text" id="title" placeholder="Ex. ทำชีท / หนังสือหน้า 8"
 												v-model="create.title"
-												class="w-full border-none focus:ring-2 focus:ring-indigo-500 border-gray-300 bg-neutral/20 font-prompt text-white placeholder:text-slate-400 rounded shadow-sm transition-colors" />
+												class="w-full border-none focus:ring-2 focus:ring-indigo-500 border-gray-300 bg-neutral/20 font-prompt text-white placeholder:text-slate-400 rounded shadow-sm shadow-black transition-colors" />
 											<p v-if="titleRequiredError" class="mt-1 font-medium text-sm text-rose-400">
 												This field is required</p>
 										</div>
@@ -146,7 +147,7 @@ function handleCancel() {
 										<label for="detail" class="font-medium text-sm text-slate-400">Detail</label>
 										<div class="mt-1">
 											<textarea v-model="create.detail"
-												class="w-full border-none focus:ring-2 focus:ring-indigo-500 border-gray-300 bg-neutral/20 font-prompt text-white rounded shadow-sm transition-colors" />
+												class="w-full border-none focus:ring-2 focus:ring-indigo-500 border-gray-300 bg-neutral/20 font-prompt text-white rounded shadow-sm shadow-black transition-colors" />
 										</div>
 									</div>
 									<HeadlessCombobox v-model="selectedSubject">
@@ -156,7 +157,7 @@ function handleCancel() {
 											</label>
 											<div class="relative mt-1">
 												<HeadlessComboboxInput
-													class="w-full border-none focus:ring-2 focus:ring-indigo-500 border-gray-300 bg-neutral/20 font-prompt text-white placeholder:text-slate-400 rounded shadow-sm transition-colors"
+													class="w-full border-none focus:ring-2 focus:ring-indigo-500 border-gray-300 bg-neutral/20 font-prompt text-white placeholder:text-slate-400 rounded shadow-sm shadow-black transition-colors"
 													id="subject" placeholder="ไม่ระบุ" autocomplete="off"
 													:displayValue="(subject) => subject?.name"
 													@change="query = $event.target.value" />
@@ -206,7 +207,7 @@ function handleCancel() {
 											<div class="flex space-x-2 mt-1" id="datetime">
 												<input type="date" placeholder="เลือกวันส่ง (ถ้ามี)"
 													v-model="create.dueDate"
-													class="w-full border-none focus:ring-2 focus:ring-indigo-500 border-gray-300 bg-neutral/20 font-prompt text-white rounded shadow-sm transition-colors" />
+													class="w-full border-none focus:ring-2 focus:ring-indigo-500 border-gray-300 bg-neutral/20 font-prompt text-white rounded shadow-sm shadow-black transition-colors" />
 											</div>
 										</div>
 										<div>
@@ -215,7 +216,7 @@ function handleCancel() {
 											<div class="flex space-x-2 mt-1" id="datetime">
 												<input type="time" placeholder="เลือกวันส่ง (ถ้ามี)"
 													v-model="create.dueTime"
-													class="w-full border-none focus:ring-2 focus:ring-indigo-500 border-gray-300 bg-neutral/20 font-prompt text-white rounded shadow-sm transition-colors" />
+													class="w-full border-none focus:ring-2 focus:ring-indigo-500 border-gray-300 bg-neutral/20 font-prompt text-white rounded shadow-sm shadow-black transition-colors" />
 											</div>
 										</div>
 									</div>
