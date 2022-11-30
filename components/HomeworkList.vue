@@ -9,7 +9,6 @@ const { data, error, pending, refresh } = await useFetch<{
 	subject?: { id: string, name: string; },
 	deletedAt?: Date,
 }[]>(config.public.apiEndpoint + '/homeworks?withDeleted=true');
-setInterval(refresh, 1000);
 
 const showOld = useLocalStorage('show_old', false);
 const homeworks = computed(() => data.value?.filter(h => !h.deletedAt || showOld.value).sort((a, b) => {
@@ -20,6 +19,10 @@ const homeworks = computed(() => data.value?.filter(h => !h.deletedAt || showOld
 }));
 
 const count = computed(() => homeworks.value?.length);
+
+onMounted(() => {
+	setInterval(refresh, 1000);
+});
 </script>
 
 <template>
