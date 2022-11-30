@@ -38,13 +38,13 @@ onMounted(() => {
 		<!-- <p>Data: {{ user }}</p> -->
 		<!-- <h1>Your nickname is {{ user.nickname }}</h1> -->
 
-		<div class="mt-4 mb-8 font-sarabun text-lg text-center">
+		<div class="mt-4 mb-8 font-prompt text-lg text-center">
 			<p class="mb-2 font-medium text-slate-400">ตอนนี้เวลา</p>
 			<p class="mb-2 tracking-wider font-inter font-bold text-3xl text-slate-200">
 				{{ currentTime }}
 			</p>
-			<p class="mb-2 font-medium text-slate-400">ของ</p>
-			<p class="font-inter text-xl text-slate-200">
+			<!-- <p class="mb-2 font-medium text-slate-400">ของ</p> -->
+			<p class="text-xl text-slate-200">
 				{{ currentDay }}
 			</p>
 		</div>
@@ -59,20 +59,20 @@ onMounted(() => {
 						{{ formatDistanceToNow(new Date('2022-12-10')) }}
 					</p>
 				</div>
-				<div class="p-6 bg-gradient-to-br from-yellow-400 to-yellow-700 rounded-xl">
-					<h3 class="font-medium text-normal">
-						เริ่มสอบกลางภาค
-					</h3>
-					<p class="font-bold text-lg text-white text-right">
-						{{ formatDistanceToNow(new Date('2022-12-16')) }}
-					</p>
-				</div>
 				<div class="p-6 bg-gradient-to-br from-green-400 to-green-700 rounded-xl">
 					<h3 class="font-medium text-normal">
 						สอบทฤษฎี ร.ด.
 					</h3>
 					<p class="font-bold text-lg text-white text-right">
 						{{ formatDistanceToNow(new Date('2022-12-18')) }}
+					</p>
+				</div>
+				<div class="p-6 bg-gradient-to-br from-yellow-400 to-yellow-700 rounded-xl">
+					<h3 class="font-medium text-normal">
+						เริ่มสอบกลางภาค
+					</h3>
+					<p class="font-bold text-lg text-white text-right">
+						{{ formatDistanceToNow(new Date('2022-12-19')) }}
 					</p>
 				</div>
 			</div>

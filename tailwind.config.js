@@ -26,7 +26,7 @@ module.exports = {
         'accent': colors.slate[800]
       },
       fontFamily: {
-        sans: 'Inter',
+        sans: ['Inter', 'Prompt'],
         inter: 'Inter',
         sarabun: 'Sarabun',
         prompt: 'Prompt',
