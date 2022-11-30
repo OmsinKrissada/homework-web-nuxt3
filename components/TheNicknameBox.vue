@@ -23,7 +23,7 @@ function handleSubmit() {
 
 			<form @submit.prevent="handleSubmit" class="space-y-6">
 				<h1 class="mx-auto font-prompt text-xl text-secondary font-extrabold">
-					กรุณาระบุตัวตน
+					Who are you?
 				</h1>
 
 				<div>
