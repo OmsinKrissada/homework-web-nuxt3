@@ -14,7 +14,7 @@
 	</Head>
 	<!-- <div class="min-h-screen bg-[#1A202C]"> -->
 	<div class="min-h-screen bg-slate-900">
-		<header class="sticky top-0 bg-slate-900/60 backdrop-blur-md">
+		<header class="z-40 sticky top-0 bg-slate-900/60 backdrop-blur-md">
 			<TheNav></TheNav>
 		</header>
 		<slot />

@@ -17,7 +17,7 @@ function handleSubmit() {
 </script>
 
 <template>
-	<div class="fixed inset-0 backdrop-blur-md z-10">
+	<div class="fixed inset-0 backdrop-blur-md z-50">
 		<div
 			class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 mx-auto px-8 py-6 w-full max-w-md bg-accent shadow sm:rounded-lg">
 

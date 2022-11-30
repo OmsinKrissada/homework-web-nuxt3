@@ -23,14 +23,14 @@ const count = computed(() => homeworks.value?.length);
 
 <template>
 	<div class="flex flex-col space-y-4 max-w-lg px-2">
-		<div class="flex items-center mb-4">
+		<div class="flex items-center mb-2">
 			<p class="flex-grow font-prompt text-2xl">จำนวนงาน: {{ count }}</p>
-			<div class="flex items-center mr-4">
-				<input type="checkbox" name="show-old" id="show-old"
-					class="m-2 text-indigo-500 focus:ring-0 focus:ring-offset-0 bg-slate-600 rounded" v-model="showOld">
-				<label for="show-old">แสดงงานเก่า</label>
-			</div>
 			<HomeworkAddItem @reload="refresh" />
+		</div>
+		<div class="flex items-center mb-4">
+			<input type="checkbox" name="show-old" id="show-old"
+				class="m-2 text-indigo-500 focus:ring-0 focus:ring-offset-0 bg-slate-600 rounded" v-model="showOld">
+			<label for="show-old">แสดงงานเก่า</label>
 		</div>
 		<TransitionGroup name="list" tag="ul" class="relative space-y-4">
 			<li v-for="hw in homeworks" :key="hw.id">
