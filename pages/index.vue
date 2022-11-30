@@ -75,6 +75,14 @@ onMounted(() => {
 						{{ formatDistanceToNow(new Date('2022-12-19')) }}
 					</p>
 				</div>
+				<div class="p-6 bg-gradient-to-br from-emerald-400 to-emerald-700 rounded-xl">
+					<h3 class="font-medium text-normal">
+						เขาชนไก่
+					</h3>
+					<p class="font-bold text-lg text-white text-right">
+						{{ formatDistanceToNow(new Date('2023-02-07')) }}
+					</p>
+				</div>
 			</div>
 			<HomeworkList class="flex-grow" />
 		</section>
