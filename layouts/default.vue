@@ -7,10 +7,10 @@
 		<Meta name="og:type" content="website" />
 		<Meta name="og:title" content="HW Tracker | Beta" />
 		<Meta name="og:description" content="สมุดจดการบ้านของห้อง 6/1" />
-		<Meta name="og:image" content="/social_image.jpg" />
+		<!-- <Meta name="og:image" content="/social_image.jpg" /> -->
 		<Meta name="twitter:description" content="สมุดจดการบ้านของห้อง 6/1" />
-		<Meta name="twitter:image" content="/social_image.jpg" />
-		<Meta name="twitter:card" content="summary_large_image" />
+		<!-- <Meta name="twitter:image" content="/social_image.jpg" /> -->
+		<!-- <Meta name="twitter:card" content="summary_large_image" /> -->
 	</Head>
 	<!-- <div class="min-h-screen bg-[#1A202C]"> -->
 	<div class="min-h-screen bg-slate-900">

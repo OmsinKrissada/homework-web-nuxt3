@@ -24,6 +24,7 @@ const isLate = computed(() => {
 	if (props.dueDate) return new Date().valueOf() - props.dueDate.valueOf() > 0;
 	else return false;
 });
+const detailLines = computed(() => props.detail ? props.detail.split('\n') : []);
 
 function getBookColor() {
 	if (!props.dueDate) return 'blue';
@@ -107,7 +108,7 @@ async function deleteHomework() {
 			<!-- </div> -->
 
 		</div>
-		<div class="flex space-x-2 text-sm text-slate-300">
+		<div v-if="(subject || dueDate)" class="flex space-x-2 text-sm text-slate-300">
 			<p v-if="subject" class="flex items-center w-fit font-prompt font-medium rounded-md">
 				<BookOpenIcon class="w-4 h-4 mr-2 fill-sky-400" />
 				{{ subject.name }}
@@ -117,9 +118,11 @@ async function deleteHomework() {
 				{{ formatRelative(dueDate, new Date(), { locale: th }) }}
 			</p>
 		</div>
-		<p class="font-medium font-prompt text-slate-200">
-			{{ detail }}
-		</p>
+		<div>
+			<p v-for="line in detailLines" class="font-medium font-prompt text-slate-200">
+				{{ line }}
+			</p>
+		</div>
 		<!-- <div> -->
 
 		<p class="font-prompt font-medium text-sm text-left text-slate-400">
