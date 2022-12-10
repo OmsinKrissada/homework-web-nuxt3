@@ -51,12 +51,12 @@ onMounted(() => {
 
 		<section class="space-y-8 flex flex-wrap flex-col xl:flex-row xl:items-start justify-evenly items-center">
 			<div class="h-fit grid grid-cols-2 gap-2 sm:grid-cols-3">
-				<div class="p-6 bg-gradient-to-br from-sky-400 to-sky-700 rounded-xl">
-					<h3 class="font-medium text-normal">
-						TGAT / TPAT 2-5
+				<div class="p-6 bg-gradient-to-br from-indigo-400 to-indigo-700 rounded-xl">
+					<h3 class="font-prompt font-medium text-normal">
+						TPAT 1 (กสพท.)
 					</h3>
 					<p class="font-bold text-lg text-white text-right">
-						{{ formatDistanceToNow(new Date('2022-12-10')) }}
+						{{ formatDistanceToNow(new Date('2022-12-17')) }}
 					</p>
 				</div>
 				<div class="p-6 bg-gradient-to-br from-green-400 to-green-700 rounded-xl">
