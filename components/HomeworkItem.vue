@@ -43,6 +43,13 @@ async function deleteHomework() {
 	await $fetch(config.public.apiEndpoint + `/homeworks/${props.id}`, { method: 'DELETE' });
 	emits('reload');
 }
+
+function linkify(text: string) {
+	const urlRegex = /(https?:\/\/[^\s]+)/g;
+	const converted = text.replace(urlRegex, '<a href="$1" target="_blank" class="text-sky-400 underline underline-offset-4">$1</a>');
+	return converted;
+	// return h('span', { href: converted });
+}
 </script>
 <template>
 	<div class="p-4 space-y-4 bg-gradient-to-br from-slate-800 to-slate-700/60 shadow shadow-black rounded"
@@ -119,8 +126,7 @@ async function deleteHomework() {
 			</p>
 		</div>
 		<div>
-			<p v-for="line in detailLines" class="font-medium font-prompt text-slate-200">
-				{{ line }}
+			<p v-for="line in detailLines" class="font-medium font-prompt text-slate-200" v-html="linkify(line)">
 			</p>
 		</div>
 		<!-- <div> -->
