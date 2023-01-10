@@ -4,8 +4,10 @@ import { useUserStore } from '~~/store/useUserStore';
 const user = useUserStore();
 const nicknameTemp = ref('');
 
+const config = useRuntimeConfig();
+
 function handleSubmit() {
-	$fetch('https://discord.com/api/webhooks/1047138672446804029/1suE2tkU6BapZq2ObB2oudwo3nXdz8a-G5sccI8nrc_uWU-1a5uEjEbH9KFbG_srJvCA', {
+	$fetch(config.public.discordWebhookUrl, {
 		method: 'POST',
 		body: {
 			content: `**Change Nickname**, ${user.nickname} -> ${nicknameTemp.value}`

@@ -23,6 +23,7 @@ export default defineNuxtConfig({
 	runtimeConfig: {
 		public: {
 			apiEndpoint: '',
+			discordWebhookUrl: '',
 			discord_oauth_link: '',
 			enableAnalytics: false,
 		}
