@@ -51,7 +51,7 @@ onMounted(() => {
 
 		<section class="space-y-8 flex flex-wrap flex-col xl:flex-row xl:items-start justify-evenly items-center">
 			<div class="h-fit grid grid-cols-2 gap-2 sm:grid-cols-3">
-				<div class="p-6 bg-gradient-to-br from-indigo-400 to-indigo-700 rounded-xl">
+				<!-- <div class="p-6 bg-gradient-to-br from-indigo-400 to-indigo-700 rounded-xl">
 					<h3 class="font-prompt font-medium text-normal">
 						TPAT 1 (กสพท.)
 					</h3>
@@ -74,7 +74,7 @@ onMounted(() => {
 					<p class="font-bold text-lg text-white text-right">
 						{{ formatDistanceToNow(new Date('2022-12-19')) }}
 					</p>
-				</div>
+				</div> -->
 				<div class="p-6 bg-gradient-to-br from-emerald-400 to-emerald-700 rounded-xl">
 					<h3 class="font-medium text-normal">
 						เขาชนไก่
