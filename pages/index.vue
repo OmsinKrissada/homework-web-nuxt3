@@ -82,7 +82,7 @@ onMounted(() => {
 						เขาชนไก่
 					</h3>
 					<p class="font-bold text-lg text-white text-right">
-						{{ formatDistanceToNow(new Date('2023-02-07')) }}
+						{{ formatDistanceToNow(new Date('2023-02-08')); }}
 					</p>
 				</div>
 			</div>
